@@ -1,0 +1,103 @@
+
+import sys
+import time
+from PyQt5.QtWidgets import (
+    QApplication, QWidget, QVBoxLayout,
+    QProgressBar, QLabel, QPushButton, QMessageBox
+)
+from PyQt5.QtCore import QThread, pyqtSignal
+
+
+class WorkerThread(QThread):
+    progress = pyqtSignal(int)
+    process_done = pyqtSignal()
+    cancelled = pyqtSignal()
+
+    def __init__(self, duration=3):
+        super().__init__()
+        self.duration = duration
+
+    def run(self):
+        for i in range(101):
+            if self.isInterruptionRequested():
+                self.cancelled.emit()
+                return
+
+            time.sleep(self.duration / 100)
+            self.progress.emit(i)
+
+        self.process_done.emit()
+
+
+class ProgressApp(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Progress Bar Demo")
+        self.setGeometry(300, 300, 400, 200)
+
+        layout = QVBoxLayout()
+
+        self.progress = QProgressBar()
+        self.progress.setRange(0, 100)
+        self.progress.setValue(0)
+
+        self.status_label = QLabel("Siap")
+
+        self.start_btn = QPushButton("Mulai Proses")
+        self.start_btn.clicked.connect(self.start_process)
+
+        self.cancel_btn = QPushButton("Cancel")
+        self.cancel_btn.clicked.connect(self.cancel_process)
+        self.cancel_btn.setEnabled(False)
+
+        layout.addWidget(self.progress)
+        layout.addWidget(self.status_label)
+        layout.addWidget(self.start_btn)
+        layout.addWidget(self.cancel_btn)
+
+        self.setLayout(layout)
+        self.worker = None
+
+    def start_process(self):
+        self.start_btn.setEnabled(False)
+        self.cancel_btn.setEnabled(True)
+        self.progress.setValue(0)
+        self.status_label.setText("Memproses...")
+
+        self.worker = WorkerThread(duration=3)
+        self.worker.progress.connect(self.update_progress)
+        self.worker.process_done.connect(self.process_finished)
+        self.worker.cancelled.connect(self.process_cancelled)
+        self.worker.start()
+
+    def update_progress(self, value):
+        self.progress.setValue(value)
+
+    def process_finished(self):
+        self.start_btn.setEnabled(True)
+        self.cancel_btn.setEnabled(False)
+        self.status_label.setText("Selesai!")
+
+        QMessageBox.information(
+            self, "Info", "Proses selesai!"
+        )
+
+    def cancel_process(self):
+        if self.worker and self.worker.isRunning():
+            self.cancel_btn.setEnabled(False)
+            self.status_label.setText("Membatalkan...")
+            self.worker.requestInterruption()
+
+    def process_cancelled(self):
+        self.progress.setValue(0)
+        self.status_label.setText("Dibatalkan")
+        self.start_btn.setEnabled(True)
+        self.cancel_btn.setEnabled(False)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = ProgressApp()
+    window.show()
+    sys.exit(app.exec_())
