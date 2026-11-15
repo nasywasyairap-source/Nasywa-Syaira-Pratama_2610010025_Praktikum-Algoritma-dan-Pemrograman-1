@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1000</width><height>700</height></rect>
+  </property>
+  <property name="windowTitle"><string>Perpustakaan - Laporan</string></property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QWidget#centralwidget { background-color: #F4F6F8; }
+QFrame#frameStatistik, QFrame#frameTabel { background-color: #FFFFFF; border: 1px solid #D8DEE5; border-radius: 8px; }
+QFrame.statCard { background-color: #34495E; border: none; border-radius: 8px; }
+QLabel.statTitle { color: #FFFFFF; font-size: 13px; font-weight: 600; }
+QLabel.statValue { color: #FFFFFF; font-size: 27px; font-weight: 700; }
+QLabel#lblJudul { color: #34495E; font-size: 22px; font-weight: 700; }
+QLabel#lblSubjudul { color: #667788; font-size: 10pt; }
+QLabel#lblJudulTabel { color: #34495E; font-size: 14px; font-weight: 700; }
+QTableWidget { background-color: #FFFFFF; border: 1px solid #D8DEE5; gridline-color: #D8DEE5; selection-background-color: #DCE6F0; selection-color: #263746; }
+QHeaderView::section { background-color: #34495E; color: #FFFFFF; padding: 8px; border: none; font-weight: 600; }
+QPushButton#btnKembali { background-color: #34495E; color: #FFFFFF; border: none; border-radius: 4px; padding: 9px 18px; font-weight: 600; }
+QPushButton#btnKembali:hover { background-color: #263746; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutUtama">
+    <property name="leftMargin"><number>24</number></property>
+    <property name="topMargin"><number>20</number></property>
+    <property name="rightMargin"><number>24</number></property>
+    <property name="bottomMargin"><number>20</number></property>
+    <property name="spacing"><number>14</number></property>
+    <item>
+     <widget class="QLabel" name="lblJudul">
+      <property name="text"><string>▤  Laporan Perpustakaan</string></property>
+      <property name="minimumSize"><size><width>0</width><height>38</height></size></property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblSubjudul">
+      <property name="text"><string>Ringkasan data buku dan aktivitas peminjaman perpustakaan</string></property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frameStatistik">
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <property name="frameShadow"><enum>QFrame::Raised</enum></property>
+      <layout class="QGridLayout" name="gridLayoutStatistik">
+       <property name="leftMargin"><number>14</number></property>
+       <property name="topMargin"><number>14</number></property>
+       <property name="rightMargin"><number>14</number></property>
+       <property name="bottomMargin"><number>14</number></property>
+       <property name="horizontalSpacing"><number>14</number></property>
+       <property name="verticalSpacing"><number>10</number></property>
+       <item row="0" column="0">
+        <widget class="QFrame" name="cardTotalBuku">
+         <property name="styleSheet"><string notr="true">background-color: #34495E; border-radius: 8px;</string></property>
+         <layout class="QVBoxLayout" name="layoutCardTotalBuku">
+          <property name="leftMargin"><number>16</number></property><property name="topMargin"><number>14</number></property><property name="rightMargin"><number>16</number></property><property name="bottomMargin"><number>14</number></property>
+          <item><widget class="QLabel" name="lblTotalBuku"><property name="styleSheet"><string notr="true">color: white; font-size: 12px; font-weight: 600;</string></property><property name="text"><string>Total Buku</string></property></widget></item>
+          <item><widget class="QLabel" name="lblAngkaTotalBuku"><property name="styleSheet"><string notr="true">color: white; font-size: 27px; font-weight: 700;</string></property><property name="text"><string>0</string></property></widget></item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFrame" name="cardTotalPeminjaman">
+         <property name="styleSheet"><string notr="true">background-color: #34495E; border-radius: 8px;</string></property>
+         <layout class="QVBoxLayout" name="layoutCardTotalPeminjaman">
+          <property name="leftMargin"><number>16</number></property><property name="topMargin"><number>14</number></property><property name="rightMargin"><number>16</number></property><property name="bottomMargin"><number>14</number></property>
+          <item><widget class="QLabel" name="lblTotalPeminjaman"><property name="styleSheet"><string notr="true">color: white; font-size: 12px; font-weight: 600;</string></property><property name="text"><string>Total Peminjaman</string></property></widget></item>
+          <item><widget class="QLabel" name="lblAngkaTotalPeminjaman"><property name="styleSheet"><string notr="true">color: white; font-size: 27px; font-weight: 700;</string></property><property name="text"><string>0</string></property></widget></item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QFrame" name="cardTotalPengembalian">
+         <property name="styleSheet"><string notr="true">background-color: #34495E; border-radius: 8px;</string></property>
+         <layout class="QVBoxLayout" name="layoutCardTotalPengembalian">
+          <property name="leftMargin"><number>16</number></property><property name="topMargin"><number>14</number></property><property name="rightMargin"><number>16</number></property><property name="bottomMargin"><number>14</number></property>
+          <item><widget class="QLabel" name="lblTotalPengembalian"><property name="styleSheet"><string notr="true">color: white; font-size: 12px; font-weight: 600;</string></property><property name="text"><string>Total Pengembalian</string></property></widget></item>
+          <item><widget class="QLabel" name="lblAngkaTotalPengembalian"><property name="styleSheet"><string notr="true">color: white; font-size: 27px; font-weight: 700;</string></property><property name="text"><string>0</string></property></widget></item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QFrame" name="cardPeminjamanAktif">
+         <property name="styleSheet"><string notr="true">background-color: #34495E; border-radius: 8px;</string></property>
+         <layout class="QVBoxLayout" name="layoutCardPeminjamanAktif">
+          <property name="leftMargin"><number>16</number></property><property name="topMargin"><number>14</number></property><property name="rightMargin"><number>16</number></property><property name="bottomMargin"><number>14</number></property>
+          <item><widget class="QLabel" name="lblPeminjamanAktif"><property name="styleSheet"><string notr="true">color: white; font-size: 12px; font-weight: 600;</string></property><property name="text"><string>Peminjaman Aktif</string></property></widget></item>
+          <item><widget class="QLabel" name="lblAngkaPeminjamanAktif"><property name="styleSheet"><string notr="true">color: white; font-size: 27px; font-weight: 700;</string></property><property name="text"><string>0</string></property></widget></item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frameTabel">
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <property name="frameShadow"><enum>QFrame::Raised</enum></property>
+      <layout class="QVBoxLayout" name="verticalLayoutTabel">
+       <property name="leftMargin"><number>14</number></property><property name="topMargin"><number>14</number></property><property name="rightMargin"><number>14</number></property><property name="bottomMargin"><number>14</number></property><property name="spacing"><number>10</number></property>
+       <item><widget class="QLabel" name="lblJudulTabel"><property name="text"><string>Buku Paling Sering Dipinjam</string></property></widget></item>
+       <item>
+        <widget class="QTableWidget" name="tableBukuPopuler">
+         <property name="minimumSize"><size><width>0</width><height>250</height></size></property>
+         <property name="rowCount"><number>0</number></property>
+         <property name="columnCount"><number>3</number></property>
+         <column><property name="text"><string>ID Buku</string></property></column>
+         <column><property name="text"><string>Judul Buku</string></property></column>
+         <column><property name="text"><string>Jumlah Dipinjam</string></property></column>
+         <attribute name="horizontalHeaderStretchLastSection"><bool>true</bool></attribute>
+         <attribute name="horizontalHeaderHighlightSections"><bool>false</bool></attribute>
+         <attribute name="verticalHeaderVisible"><bool>false</bool></attribute>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayoutBawah">
+      <item><spacer name="horizontalSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+      <item><widget class="QPushButton" name="btnKembali"><property name="minimumSize"><size><width>220</width><height>38</height></size></property><property name="text"><string>⌂  Kembali ke Menu Utama</string></property></widget></item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

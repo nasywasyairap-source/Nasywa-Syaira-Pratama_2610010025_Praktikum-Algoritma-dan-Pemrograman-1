@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>565</width>
+    <height>601</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kelola Buku</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>60</y>
+      <width>301</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayoutMain">
+     <item>
+      <widget class="QTableWidget" name="tableBuku">
+       <column>
+        <property name="text">
+         <string>ID Buku</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Judul</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Pengarang</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Penerbit</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Tahun Terbit</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Stok</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="lblTitle">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>20</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>🕮 KELOLA DATA BUKU</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>241</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayoutTable">
+     <item>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="btnTambah">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>220</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(39, 174, 96);
+</string>
+        </property>
+        <property name="text">
+         <string>Tambah</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnHapus">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(192, 57, 43);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Hapus</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnBersihkan">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>250</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(52, 73, 94);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Bersihkan</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnEdit">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>220</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(243, 156, 18);
+
+</string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblIdBuku">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ID Buku (ISBN):</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtIdBuku">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>10</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblJudul">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>40</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Judul Buku:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtJudul">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>40</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtPenerbit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>100</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblPenerbit">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Penerbit:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtPengarang">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblPengarang">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Pengarang:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtTahun">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>130</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblTahun">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Tahun Terbit:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txtStok">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>160</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 0 8px;
+   background: white;
+   selection-background-color: darkgray;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblStok">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>160</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Jumlah Stok:</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="btnKembali">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>541</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 73, 94);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>⬅  Kembali ke Menu Utama</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>565</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
